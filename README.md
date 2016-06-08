@@ -3,6 +3,8 @@ This is an addon repository for Tree of Savior.
 
 ## Addons
 
+- SimpleWarp
+
 ### SimpleWarp
 
 This addon replaces the original warp map with a simpler menu with a list of warps.
