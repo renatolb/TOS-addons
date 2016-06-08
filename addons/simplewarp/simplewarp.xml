@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="simplewarp" x="0" y="0" width="480" height="115">
+    <frame title="{#42414F}Simplewarp" layout_gravity="center center"/>
+	<input hittest="true" movable="true" moveintitlebar="false" hittestframe="true"/>
+    <option hideable="true"/>
+    <layer layerlevel="100"/>
+    <draw blend="95"/>
+	<script OpenScp="SIMPLEWARP_OPEN" CloseScp="SIMPLEWARP_CLOSE"/>
+    <controls>
+        <droplist name="warplist" rect="0 0 430 40" layout_gravity="center top" SelectScp="WARP_POINT_CHANGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="20 0" visibleline="14"/>
+		<button name="execute" rect="190 40 100 40" caption="GO!" LBtnUpScp="SIMPLEWARP_GO"/>
+    </controls>
+</uiframe>

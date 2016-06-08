@@ -1,7 +1,15 @@
-# Tree of Savior - Simplewarp
-This is an addon for Tree of Savior game that changes the original warp menu and adds some new functionality to it. 
+# Tree of Savior Addons
+This is an addon repository for Tree of Savior.
 
-## Features
+## Addons
+
+### SimpleWarp
+
+This addon replaces the original warp map with a simpler menu with a list of warps.
+
+![simplewarp](repo_content/simplewarp.png "SimpleWarp")
+
+#### Features
 
 - Shows the level of the warp location
 - Orders the locations by:
@@ -11,4 +19,4 @@ This is an addon for Tree of Savior game that changes the original warp menu and
 - When on a <b>City</b> map, pre-selects the last field map you warped from</li>
 
 ## Download / Installation
-This addon should be installed via the [Excluron's Addon Manager](https://github.com/Excrulon/Tree-of-Savior-Addon-Manager).
+These addons should be installed via the [Excluron's Addon Manager](https://github.com/Excrulon/Tree-of-Savior-Addon-Manager).
