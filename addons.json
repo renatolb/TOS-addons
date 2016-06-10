@@ -3,7 +3,7 @@
 	"file" : "simplewarp",
 	"extension" : "ipf",
 	"releaseTag" : "SimpleWarp",
-	"fileVersion" : "v1.0.2",
+	"fileVersion" : "v1.0.3",
 	"unicode" : "☃",
 	"description" : "Displays warp locations in a list instead of a map. Also show the map's quest level and pre-selects the closest city or the last map you warped from.",
 	"tags" : [
