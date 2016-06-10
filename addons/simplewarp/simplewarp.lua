@@ -38,8 +38,10 @@ function SIMPLEWARP_OPEN(useitem)
 			best_city = v["name"];
 			break;
 		end
-
-		last_field_warp = get_warp_index_by_name(WARP_INFO_ZONE(currentZoneName).Name);
+		last_field_warp_info = WARP_INFO_ZONE(currentZoneName);
+		if last_field_warp_info ~= nil then
+			last_field_warp = get_warp_index_by_name(last_field_warp_info.Name);
+		end
 		selected_warp = get_warp_index_by_name(best_city);
 		warplist:SelectItemByKey(selected_warp);
 	end
@@ -64,10 +66,9 @@ function SIMPLEWARP_LOADWARPS(frame)
 	for i = 1, #userWarps do
 		local name = userWarps[i]["name"];
 		local level = userWarps[i]["lvl"];
-		local zone = userWarps[i]["info"].Zone;
 		local cost = userWarps[i]["cost"];
 
-		if currentZoneName ~= zone then
+		if userWarps[i]["info"] ~= nil and currentZoneName ~= userWarps[i]["info"].Zone then
 			name = string.format("%s - Cost: %s", name, cost);
 		end
 		if level > 0 then
@@ -110,11 +111,12 @@ function SIMPLEWARPS_GET_LAST_SCROLL_WARP()
 		local currentZoneName = GetZoneName(GetMyPCObject());
 		local info = WARP_INFO_ZONE(mapCls.ClassName);
 		local my_warp = {};
-		my_warp["name"] = "{#ffff00}"..info.Name.." - Previous Warp";
 		my_warp["info"] = info;
 		if info ~= nil then
+			my_warp["name"] = "{#ffff00}"..info.Name.." - Previous Warp";
 			my_warp["ClassName"] = info.ClassName;
 		else
+			my_warp["name"] = "{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)');
 			my_warp["ClassName"] = mapCls.ClassName;
 		end
 		my_warp["lvl"] = mapCls.QuestLevel;
@@ -214,7 +216,12 @@ function sort_warps_by_cost(x, y)
 end
 
 function filter_warp_by_city(warp)
-	local mapCls = GetClass("Map", warp["info"].Zone);
+	local mapCls;
+	if warp["info"] ~= nil then 
+		mapCls = GetClass("Map", warp["info"].Zone);
+	else
+		mapCls = GetClass("Map", warp["className"]);
+	end
 	return mapCls.MapType == 'City';
 end
 
