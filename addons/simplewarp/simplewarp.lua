@@ -219,9 +219,10 @@ function filter_warp_by_city(warp)
 	local mapCls;
 	if warp["info"] ~= nil then 
 		mapCls = GetClass("Map", warp["info"].Zone);
-		return mapCls.MapType == 'City';
+	else
+		mapCls = GetClass("Map", warp["className"]);
 	end
-	return false;
+	return mapCls ~= nil and mapCls.MapType == 'City';
 end
 
 function filter_table(fn, table)
